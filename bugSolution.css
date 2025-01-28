@@ -1,0 +1,17 @@
+One way to avoid this issue and improve CSS maintainability is to restructure the CSS to eliminate the need for `!important`.  For example, you could use more specific selectors or adjust the CSS hierarchy.  The solution below provides an example:
+
+```css
+.parent {
+  font-size: 16px;
+}
+
+.child {
+  font-size: 24px;
+}
+
+.child .grandchild {
+  font-size: 18px; 
+}
+```
+
+This version does not use `!important`, making it more predictable.  The `font-size` will now correctly cascade through the hierarchy, with the `.grandchild`'s declaration overriding its parent's.  Other solutions might involve using a different methodology to override the styles, and avoiding relying on !important.
