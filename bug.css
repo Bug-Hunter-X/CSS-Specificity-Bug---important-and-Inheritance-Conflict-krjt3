@@ -1,0 +1,17 @@
+The following CSS code snippet demonstrates an unusual issue related to specificity and inheritance:
+
+```css
+.parent {
+  font-size: 16px;
+}
+
+.child {
+  font-size: 24px !important;
+}
+
+.child .grandchild {
+  font-size: 18px;
+}
+```
+
+In this example, the `.grandchild` element inherits the `font-size` from its parent, `.child`, but also overrides it with its own declaration. However, the `!important` declaration on the `.child` element has higher specificity, and hence should override the declaration on `.grandchild`.  The unexpected behavior may occur in browsers that handle specificity and the `!important` flag differently, causing the `font-size` to be 18px, or unexpectedly 24px.
